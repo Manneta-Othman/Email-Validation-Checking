@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <title>Email Validation Check</title>
+</head>
+<body>
+    <div class="wrapper">
+        <form action="">
+            <h1>Email Validation Check in HTML CSS & JavaScript</h1>
+            <div class="input">
+                <input onkeyup="check()" type="email" name="email" id="email" placeholder="Enter Email Address">
+                <span class="wrong"><i class="uil uil-exclamation-circle"></i></span>
+                <span class="correct"><i class="uil uil-check"></i></span>
+                <p>Please! Enter Valid Email Address</p>
+           </div>
+           <button type="submit">Submit</button>
+        </form>
+    </div>
+         
+</body>
+
+    <script>
+        const email = document.querySelector('.input #email');
+        const msg = document.querySelector('.input p');
+        const wrong = document.querySelector('.input .wrong');
+        const correct = document.querySelector('.input .correct');
+        const btn = document.querySelector('.wrapper button');
+
+
+
+        let regExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+
+        function check(){
+            if(email.value.match(regExp)){
+                //Icon status
+                correct.style.opacity = "1";
+                wrong.style.opacity = "0";
+                //btn
+                btn.style.opacity = "1";
+                btn.style.display = "block";
+                //input border
+                email.style.borderColor = "green";
+                //msg status
+                msg.style.opacity = "0";
+                msg.style.display = "none";
+            } else{
+                //msg
+                msg.style.opacity = "1";
+                msg.style.display = "block";
+                msg.textContent = "Please Enter a Valid Email Address";
+                //icon
+                wrong.style.opacity = "1";
+                correct.style.opacity = "0";
+                // input border
+                email.style.borderColor = "rgb(219, 66, 66)";
+                // btn status
+                btn.style.opacity = "0";
+                btn.style.display = "none";
+            }
+            if(!email.value){
+                // default msg status
+                msg.style.opacity = "0";
+                msg.style.display = "none";
+                //default icon status
+                correct.style.opacity = "0";
+                wrong.style.opacity = "0";
+                //input border
+                email.style.borderColor = "black";
+                // default btn status
+                btn.style.opacity = "0";
+                btn.style.display = "none";
+            }
+        }
+    </script>
+
+</html>
