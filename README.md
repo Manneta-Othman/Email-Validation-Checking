@@ -1,3 +1,1 @@
-��#� �e�m�a�i�l�
-�email validation project
-�
+updated README.md with a new line
